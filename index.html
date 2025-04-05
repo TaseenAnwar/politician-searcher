@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politician Searcher</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Politician Searcher</h1>
+            <p>Find detailed information about U.S. politicians at federal, state, and local levels</p>
+        </header>
+
+        <main>
+            <section id="search-section" class="active">
+                <div class="search-container">
+                    <h2>Find a Politician</h2>
+                    <form id="search-form">
+                        <div class="form-group">
+                            <label for="politician-name">Politician's Name</label>
+                            <input type="text" id="politician-name" placeholder="e.g. Alexandria Ocasio-Cortez">
+                        </div>
+                        <div class="form-group">
+                            <label for="politician-state">State</label>
+                            <input type="text" id="politician-state" placeholder="e.g. New York">
+                        </div>
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" placeholder="Any other details that might help identify the politician"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Search</button>
+                    </form>
+                </div>
+
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Searching for politician...</p>
+                </div>
+
+                <div id="politician-result" class="hidden">
+                    <h2>Is this who you're looking for?</h2>
+                    <div class="politician-card">
+                        <div class="politician-photo">
+                            <img id="result-photo" src="" alt="Politician photo">
+                        </div>
+                        <div class="politician-info">
+                            <h3 id="result-name"></h3>
+                            <p id="result-title"></p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="confirm-politician" class="btn-primary">Yes, this is correct</button>
+                        <button id="refine-search" class="btn-secondary">No, I need to refine my search</button>
+                    </div>
+                </div>
+
+                <div id="refine-search-section" class="hidden">
+                    <h2>Refine Your Search</h2>
+                    <form id="refine-form">
+                        <div class="form-group">
+                            <label for="refine-info">Additional Details</label>
+                            <textarea id="refine-info" placeholder="Please provide more specific details about the politician you're looking for"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Search Again</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="detail-section" class="hidden">
+                <div id="detail-loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Loading detailed information...</p>
+                </div>
+
+                <div id="politician-details">
+                    <div class="profile-header">
+                        <div class="profile-photo">
+                            <img id="detail-photo" src="" alt="Politician photo">
+                        </div>
+                        <div class="profile-basic-info">
+                            <h2 id="detail-name"></h2>
+                            <h3 id="detail-position"></h3>
+                            <p id="detail-state"></p>
+                            <p id="detail-age"></p>
+                        </div>
+                    </div>
+
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="biography">Biography</button>
+                        <button class="tab-btn" data-tab="donations">Campaign Donations</button>
+                        <button class="tab-btn" data-tab="news">Recent News</button>
+                        <button class="tab-btn" data-tab="tweets">Recent Tweets</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="biography" class="tab-pane active">
+                            <h3>Biography</h3>
+                            <div id="bio-content"></div>
+                        </div>
+
+                        <div id="donations" class="tab-pane">
+                            <h3>Campaign Donations</h3>
+                            <div id="donations-content"></div>
+                            <div id="israel-donations">
+                                <h4>Donations from Pro-Israel Groups</h4>
+                                <div id="israel-donations-content"></div>
+                            </div>
+                        </div>
+
+                        <div id="news" class="tab-pane">
+                            <h3>Recent News</h3>
+                            <div id="news-content"></div>
+                        </div>
+
+                        <div id="tweets" class="tab-pane">
+                            <h3>Recent Tweets</h3>
+                            <div id="tweets-content"></div>
+                        </div>
+                    </div>
+
+                    <button id="back-to-search" class="btn-secondary">Back to Search</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Politician Searcher | Data sourced from public records</p>
+        </footer>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
